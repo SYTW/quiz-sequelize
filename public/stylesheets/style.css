@@ -10,3 +10,9 @@ body {
 section > div { padding: 20px; }
 header, nav, section, footer {background: #eee; text-align: center; }
 nav span { margin: 0px 10px 0px 0px; }
+#videochimp { display: none; }
+#photocas {
+  display: inline;
+  /* margin-left: 120px; */
+  margin-right: 80px; /*  padding: 20px; */
+}

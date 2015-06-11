@@ -9,3 +9,7 @@ exports.answer = function(req, res) {
   if (req.query.respuesta === 'Roma') respuesta = 'Correcto'; else respuesta = 'Incorrecto';
   res.render('quizes/answer', {respuesta: respuesta});
 };
+
+exports.author = function(req, res) {
+  res.render('author', {});
+};
