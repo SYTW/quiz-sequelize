@@ -18,8 +18,7 @@ La ruta de acceso a esta página debe ser `/author`.
 4. Modifique el router (routers/index.js) para que atienda las
 peticiones "GET /author" y sirva una nueva vista views/author.ejs
 con los datos de los autores o autor de la página, mostrando el
-nombre de los autores, su fotografía y un pequeño video (opcional)
-de 30 seg.
+nombre de los autores y una fotografía.
 
 5.  Cuando se haya terminado este desarrollo, integrelo en la rama master, y súbalo a GitHub.
 
