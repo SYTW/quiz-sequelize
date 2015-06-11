@@ -1,4 +1,8 @@
 
+## Para leer
+
+* [Diseño Web Responsivo (Responsive Web Design)](http://xn--diseowebresponsive-q0b.org/?utm_source=redirects&utm_medium=dise%25C3%25B1owebresponsivo.com.ar&utm_campaign=301_Redirects)
+
 ## Troubleshooting
 
 ###  Refresh favicon the simple way
