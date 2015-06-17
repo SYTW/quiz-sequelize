@@ -1,0 +1,13 @@
+Hola,
+
+Aquí estan los enlaces:
+
+GitHub repo: https://github.com/crguezl/quizcas
+Despliegue en Heroku: https://quizcas.herokuapp.com/
+Gracias por tu evaluación.
+
+Saludos
+
+
+
+
