@@ -4,3 +4,4 @@ quiz.sqlite
 *.log
 *.~
 *.swp
+.env

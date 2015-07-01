@@ -2,6 +2,8 @@
 
 ##Tarea del Módulo 6. Explicación de la tarea
 
+Véase la rama `creditos`.
+
 Se deben añadir los siguientes cambios a Quiz:
 
 1. Modificar el servidor Quiz para añadir un enlace en el píe de página `<footer>`
@@ -24,6 +26,10 @@ nombre de los autores y una fotografía.
 
 7. Una vez realizados y probados estos cambios, debe crearse una cuenta en heroku para desplegar allí el servidor desarrollado en esta práctica.
 
+##Tarea del Módulo 7. 
+
+Véase la rama `m7`
+
 ##Despliegue en Heroku
 
 * [https://git.heroku.com/quizcas.git](https://git.heroku.com/quizcas.git)
@@ -32,6 +38,10 @@ nombre de los autores y una fotografía.
 
 * [Diseño Web Responsivo (Responsive Web Design)](http://xn--diseowebresponsive-q0b.org/?utm_source=redirects&utm_medium=dise%25C3%25B1owebresponsivo.com.ar&utm_campaign=301_Redirects)
 
+* Documentación de sequelize 1.7.0: 
+[http://docs.sequelizejs.com/en/1.7.0/](http://docs.sequelizejs.com/en/1.7.0/)
+
+* Sqlite3 package: [https://www.npmjs.com/package/sqlite3](https://www.npmjs.com/package/sqlite3)
 ## Troubleshooting
 
 ###  Refresh favicon the simple way
