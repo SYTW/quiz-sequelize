@@ -2,9 +2,9 @@ var path = require('path');
 
 // postgress: postgres://databaseuser:password@host:port/database
 // sqlite3:   sqlite://:@:/
-var databaseURL = process.env.DATABASE_URL || 'sqlite://:@:/quiz';
+var databaseURL = process.env.DATABASE_URL          || 'sqlite://:@:/quiz';
 var databaseStorage  = process.env.DATABASE_STORAGE || 'quiz.sqlite';
-//                                         1         2   3    4     5    6
+//                           1        2    3    4    5     6
 var url = databaseURL.match(/(.*):\/\/(.*):(.*)@(.*):(.*)\/(.*)/);
 var DB_name  = (url[6] || null); console.log("DB_name: "+DB_name);
 var user     = (url[2] || null); console.log("database user: "+user);

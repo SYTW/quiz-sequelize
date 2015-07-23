@@ -1,19 +1,21 @@
-var Quiz = require('../models/models.js').Quiz;
+var models = require('../models/models.js');
+var Quiz = models.Quiz;
 
-exports.question = function(req, res) {
-  Quiz.findAll().success(function(quiz){
-    res.render('quizes/question', {pregunta: quiz[1].pregunta})
+exports.show = function(req, res) {
+  Quiz.find(req.params.quizId).then(function(quiz) {
+    res.render('quizes/show', { quiz: quiz });
   });
 };
 
 exports.answer = function(req, res) {
-  var respuesta;
+  Quiz.find(req.params.quizId).then(function(quiz) {
+    var respuesta = 'Incorrecto';
+    if (req.query.respuesta === quiz.respuesta) respuesta = 'Correcto'; 
+    res.render('quizes/answer', { quiz: quiz, respuesta: respuesta })
+  });
+};
 
-  Quiz.findAll().success(function(quiz) {
-        if (req.query.respuesta === quiz[1].respuesta) respuesta = 'Correcto'; 
-        else respuesta = 'Incorrecto';
-        res.render('quizes/answer', {respuesta: respuesta});
-    });
+exports.index = function(req, res) {
 };
 
 exports.author = function(req, res) {
