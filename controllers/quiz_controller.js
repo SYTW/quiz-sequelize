@@ -16,6 +16,9 @@ exports.answer = function(req, res) {
 };
 
 exports.index = function(req, res) {
+  Quiz.findAll().then(function(quizes){
+    res.render('quizes/index.ejs', { quizes: quizes});
+  });
 };
 
 exports.author = function(req, res) {

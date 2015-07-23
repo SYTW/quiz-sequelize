@@ -39,20 +39,24 @@ var Quiz = sequelize.import(quiz_path);
 exports.Quiz = Quiz;
 
 // sequelize.sync() crea e inicializa la tabla de preguntas en la DB
-sequelize.sync().success(function(){
-  Quiz.count().success(function(count) {
+sequelize.sync().then(function(){
+  // then(...) ejecuta el manejador una vez creada la tabla
+  Quiz.count().then(function(count) {
     if (count === 0) { // La tabla sólo se incializa si está vacía
       Quiz.create({
         pregunta: "Capital de Italia",
         respuesta: "Roma"
-      }).success(function(){ 
-          Quiz.create({
-            pregunta: "Capital de Portugal",
-            respuesta: "Lisboa"
-          }).success(function(){
-            console.log("Database created");
-          });
-      })
+      });
+      Quiz.create({
+        pregunta: "Capital de España",
+        respuesta: "Madrid"
+      });
+      Quiz.create({
+        pregunta: "Capital de Portugal",
+        respuesta: "Lisboa"
+      }).then(function(){
+        console.log("Base de datos inicializada");
+      });
     }
   });
 });
