@@ -16,6 +16,7 @@ var storage  = process.env.DATABASE_STORAGE; console.log(storage);
 var Sequelize = require('sequelize');
 
 // Usar BBDD SQlite
+/*
 var sequelize = new Sequelize(DB_name, user, pwd, 
         { 
           dialect: dialect, 
@@ -26,6 +27,9 @@ var sequelize = new Sequelize(DB_name, user, pwd,
           omitNull: true
         }
     );
+*/
+
+var sequelize = new Sequelize('sqlite://@:/', { storage: storage });
 
 // Importar la definición de la tabla Quiz en quiz.js
 var quiz_path = path.join(__dirname, 'quiz');
