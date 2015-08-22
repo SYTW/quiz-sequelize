@@ -30,6 +30,17 @@ nombre de los autores y una fotografía.
 
 Véase la rama `m7`
 
+### Añadir a Quiz un buscador de preguntas.
+
+Se pide añadir un formulario de búsqueda en la página que muestra la lista de quizes `/quizes`.
+El formulario tendra un campo para introducir el texto a buscar y un botón `submit`.
+El resultado e la búsqueda contendrá todas las preguntas que contengan el texto 
+introducido en el formulario ordenadas alfabéticamente.
+
+Este desarrollo debe hacerse en una rama llamada `busquedas`, la cual se mezclará con la rama
+`master` una vez se haya terminado la práctica.
+
+
 ##Despliegue en Heroku
 
 * [https://git.heroku.com/quizcas.git](https://git.heroku.com/quizcas.git)
