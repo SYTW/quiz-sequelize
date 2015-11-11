@@ -1,16 +1,20 @@
 var path = require('path');
 
 // postgress: postgres://databaseuser:password@host:port/database
-// sqlite3:   sqlite://@:/
-var url = process.env.DATABASE_URL.match(/(.*):\/\/(.*):(.*)@(.*):(.*)\/(.*)/);
-var DB_name  = (url[6] || null); console.log(DB_name);
-var user     = (url[2] || null); console.log(user);
-var pwd      = (url[3] || null); console.log(pwd);
-var protocol = (url[1] || null); console.log(protocol);
-var dialect  = protocol;         console.log(dialect);
-var port     = (url[5] || null); console.log(port);
-var host     = (url[4] || null); console.log(host);
-var storage  = process.env.DATABASE_STORAGE; console.log(storage);
+// sqlite3:   sqlite://:@:/
+var databaseURL = process.env.DATABASE_URL          || 'sqlite://:@:/quiz';
+var databaseStorage  = process.env.DATABASE_STORAGE || 'quiz.sqlite';
+//                           1        2    3    4    5     6
+var url = databaseURL.match(/(.*):\/\/(.*):(.*)@(.*):(.*)\/(.*)/);
+var DB_name  = (url[6] || null); console.log("DB_name: "+DB_name);
+var user     = (url[2] || null); console.log("database user: "+user);
+var pwd      = (url[3] || null); console.log("password: "+pwd);
+
+var protocol = (url[1] || null); console.log("protocol: "+protocol);
+var dialect  = protocol;         console.log("dialect: "+dialect);
+var port     = (url[5] || null); console.log("port: "+port);
+var host     = (url[4] || null); console.log("host: "+host);
+var storage  = databaseStorage;  console.log("database storage: "+storage);
 
 // Cargar modelo ORM
 var Sequelize = require('sequelize');
@@ -39,20 +43,24 @@ var Quiz = sequelize.import(quiz_path);
 exports.Quiz = Quiz;
 
 // sequelize.sync() crea e inicializa la tabla de preguntas en la DB
-sequelize.sync().success(function(){
-  Quiz.count().success(function(count) {
+sequelize.sync().then(function(){
+  // then(...) ejecuta el manejador una vez creada la tabla
+  Quiz.count().then(function(count) {
     if (count === 0) { // La tabla sólo se incializa si está vacía
       Quiz.create({
         pregunta: "Capital de Italia",
         respuesta: "Roma"
-      }).success(function(){ 
-          Quiz.create({
-            pregunta: "Capital de Portugal",
-            respuesta: "Lisboa"
-          }).success(function(){
-            console.log("Database created");
-          });
-      })
+      });
+      Quiz.create({
+        pregunta: "Capital de España",
+        respuesta: "Madrid"
+      });
+      Quiz.create({
+        pregunta: "Capital de Portugal",
+        respuesta: "Lisboa"
+      }).then(function(){
+        console.log("Base de datos inicializada");
+      });
     }
   });
 });
